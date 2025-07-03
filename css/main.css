@@ -461,6 +461,31 @@ body {
     max-width: 100px !important;
 }
 
+.close-car-price-box-wrapper {
+    position: relative;
+    cursor: pointer;
+}
+
+.close-car-price-box {
+    position: absolute;
+    top: -30px;
+    left: -30px;
+    font-size: 20px;
+    color: white;
+    background-color: #555;
+    border-radius: 50%;
+    height: 30px;
+    width: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.close-car-price-box .close-icon {
+    position: relative;
+    top: -2px;
+    left: -1px;
+}
+
 @media (max-width: 991.98px) {
 
     .search-wrapper {
@@ -536,5 +561,14 @@ body {
     /* Optional: adjust clock spacing */
     .nav_icon {
         font-size: 1rem !important;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 992px) {
+    .testimonial-paragraph {
+        width: 190%;
+        position: relative;
+        left: -1px;
+        text-align: justify;
     }
 }
