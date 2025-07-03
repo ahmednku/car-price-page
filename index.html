@@ -1,0 +1,1264 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Car Listing Design - Exact Thumbnail Layout</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon/fonts/remixicon.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/car-detail-mobile.css">
+
+</head>
+
+<body class="bg-white">
+
+    <header class="container px-4 d-flex align-items-center justify-content-between flex-wrap gap-2">
+        <!-- LEFT -->
+        <div class="d-flex gap-3 flex-wrap align-items-center nav-links search-wrapper">
+            <a class="navbar-brand p-0 fw-bold text-danger text-decoration-underline" href="#">Stock</a>
+            <a class="navbar-brand p-0 text-dark" href="#">Auction</a>
+            <a class="navbar-brand p-0 text-dark" href="#">How To Buy</a>
+            <a class="navbar-brand p-0 text-dark" href="#">Testimonials</a>
+
+            <!-- RIGHT -->
+            <button class="btn p-0 border-0 bg-transparent d-lg-none" data-bs-toggle="offcanvas"
+                data-bs-target="#headerMenu" aria-controls="headerMenu">
+                <i class="bi bi-list nav_icon fs-4"></i>
+            </button>
+            <span class="text-dark"><i class="bi bi-clock nav_icon me-1"></i> Japan Time: 00:39 am, Thursday</span>
+            <span class="text-dark nav_info d-none d-lg-inline"><i class="bi bi-car-front-fill nav_icon me-1"></i>
+                Stock: 119,250</span>
+            <span class="text-dark nav_info d-none d-lg-inline"><img src="images/icons/action.png" alt=""
+                    style="height: 16px;" class="me-1">
+                Auction: 86,448</span>
+
+            <!-- Language Selector -->
+            <select class="form-select form-select-sm w-auto select_lang nav_info d-none d-lg-inline"
+                style="font-size: 13px;">
+                <option>Select Language</option>
+            </select>
+        </div>
+    </header>
+
+
+
+    <!-- Offcanvas Menu (Burger Menu for Small Devices) -->
+    <nav class="offcanvas offcanvas-end bg-primary text-white" tabindex="-1" id="headerMenu">
+        <div class="offcanvas-header">
+            <h5 class="offcanvas-title">Menu</h5>
+            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas"
+                aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body d-flex flex-column gap-3 fs-6">
+            <a href="#" class="text-white"><i class="fas fa-sign-in-alt"></i> Login</a>
+            <a href="#" class="text-white"><i class="fas fa-user-plus"></i> Register</a>
+            <a href="#" class="position-relative text-white">
+                <i class="fas fa-bell"></i>
+                <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger"
+                    style="font-size: 10px;">3</span>
+            </a>
+            <select class="form-select form-select-sm bg-light text-dark border-0">
+                <option>USD</option>
+            </select>
+            <select class="form-select form-select-sm bg-light text-dark border-0">
+                <option>Select Language</option>
+            </select>
+        </div>
+    </nav>
+
+    <!-- Main Nav Bar + Logo -->
+    <div class="position-relative">
+        <div class="logo-wrapper">
+            <img src="images/logo.png" alt="TokyoCarz Logo">
+        </div>
+
+        <nav class="navbar navbar-expand-lg bg-primary py-2">
+            <div class="container px-4 d-flex align-items-center justify-content-between flex-wrap gap-2">
+                <!-- Search Filters -->
+                <div class="d-flex align-items-center flex-grow-1 gap-1 search-wrapper">
+                    <select class="form-select form-select-sm  nav_fields" style="max-width: 150px;">
+                        <option>Select Make</option>
+                    </select>
+                    <select class="form-select form-select-sm  nav_fields" style="max-width: 150px;">
+                        <option>Select Model</option>
+                    </select>
+                    <select class="form-select form-select-sm  nav_fields" style="max-width: 120px;">
+                        <option>Year From</option>
+                    </select>
+                    <select class="form-select form-select-sm  nav_fields" style="max-width: 120px;">
+                        <option>Year To</option>
+                    </select>
+                    <input type="text" class="form-control form-control-sm  nav_fields" placeholder="keywords..."
+                        style="max-width: 180px;">
+                    <button class="btn btn-sm btn-danger px-3"><i class="fas fa-search"></i></button>
+                    <a href="#" class="text-white bg-white text-primary plus_icon"><i class="fas fa-plus"></i></a>
+                </div>
+
+                <!-- Desktop Icons -->
+                <div class="d-none d-lg-flex align-items-center gap-2 text-white fs-6">
+                    <a href="#" class="text-white"><i class="fas fa-sign-in-alt"></i> Login</a> |
+                    <a href="#" class="text-white"><i class="fas fa-user-plus"></i> Register</a>
+                    <a href="#" class="position-relative text-white">
+                        <i class="fas fa-bell"></i>
+                        <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger"
+                            style="font-size: 10px;">3</span>
+                    </a>
+                    <select class="form-select form-select-sm flex-fill w-auto bg-light text-dark border-0">
+                        <option>USD</option>
+                    </select>
+                </div>
+            </div>
+        </nav>
+    </div>
+
+    <!-- Mobile Header -->
+    <header class="d-flex d-md-none justify-content-between align-items-center px-3 py-2 border-bottom">
+        <button class="btn p-0" data-bs-toggle="offcanvas" data-bs-target="#mobileNav">
+            <i class="fas fa-bars fa-lg"></i>
+        </button>
+
+        <img src="images/logo_tokyo.jpg" alt="TokyoCarZ Logo" height="28">
+
+        <a href="#" class="text-dark"><i class="fas fa-search fa-lg"></i></a>
+    </header>
+
+
+    <nav class="offcanvas offcanvas-start" tabindex="-1" id="mobileNav">
+        <div class="offcanvas-header">
+            <h6 class="offcanvas-title">Menu</h6>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body">
+            <ul class="list-unstyled">
+                <li><a class="d-block py-2" href="#">Stock</a></li>
+                <li><a class="d-block py-2" href="#">Auction</a></li>
+                <li><a class="d-block py-2" href="#">How To Buy</a></li>
+                <li><a class="d-block py-2" href="#">Testimonials</a></li>
+                <li class="py-2 text-muted"><i class="fas fa-clock me-2"></i> Japan Time: 00:39 AM</li>
+                <li class="py-2 text-muted"><i class="fas fa-car-side me-2"></i> Stock: 119,250</li>
+                <li class="py-2 text-muted"><img src="images/icons/action.png" height="16" class="me-2"> Auction: 86,448
+                </li>
+                <li class="py-2">
+                    <select class="form-select form-select-sm w-auto" style="font-size: 13px;">
+                        <option>Select Language</option>
+                    </select>
+                </li>
+                <li>
+                    <div class="d-flex align-items-center gap-2 text-dark fs-6 flex-wrap">
+
+                        <a href="#" class="text-white"><i class="fas fa-sign-in-alt  "></i> Login</a> |
+                        <a href="#" class="text-white"><i class="fas fa-sign-in-alt  "></i> Register</a>
+                        <a href="#" class="position-relative text-white">
+                            <i class="fas fa-bell"></i>
+                            <span
+                                class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger"
+                                style="font-size: 10px;">3</span>
+                        </a>
+                        <select class="form-select form-select-sm w-auto bg-light text-dark border-0">
+                            <option>USD</option>
+                        </select>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+
+    <!-- Breadcrumbs -->
+    <div class="container px-4 py-3">
+        <nav>
+            <ol class="breadcrumb mb-0">
+                <li class="breadcrumb-item"><a href="#" class="text-primary">Home</a></li>
+                <li class="breadcrumb-item"><a href="#" class="text-primary">Cars for Sale</a></li>
+                <li class="breadcrumb-item"><a href="#" class="text-primary">Toyota</a></li>
+                <li class="breadcrumb-item"><a href="#" class="text-primary"> Land Cruiser Prado</a></li>
+            </ol>
+        </nav>
+    </div>
+    <!-- FOr mobile -->
+    <div class="sticky-summary sticky-top d-md-none bg-white border-bottom shadow-sm px-3 py-2 z-3">
+        <div class="d-flex align-items-center">
+            <img src="images/land_cruiser.png" alt="Car" class="me-2 rounded" style="width: 60px;">
+            <div class="flex-grow-1">
+                <div class="fw-semibold small text-truncate">1996 Toyota Land Cruiser Prado KZJ95W 4WD</div>
+                <div class="d-flex justify-content-between small">
+                    <span>Car Price (FOB):</span>
+                    <strong>$456,312</strong>
+                </div>
+                <div class="d-flex justify-content-between small">
+                    <span>Total Price (CIF):</span>
+                    <strong>$600</strong>
+                </div>
+            </div>
+        </div>
+        <div class="d-flex justify-content-between text-muted small border-top pt-2 breadcrumb-bar sticky-nav">
+            <nav class="breadcrumb-nav">
+
+                <span class="nav-item text-secondary" data-target="car-detail-section">Car Details</span>
+                <span class="nav-item text-secondary" data-target="section-features">Features</span>
+                <span class="nav-item text-secondary" data-target="section-feedback">Feedback</span>
+                <span class="nav-item text-secondary" data-target="section-next">Next</span>
+            </nav>
+        </div>
+    </div>
+
+
+
+    <div class="container py-4">
+        <div class="row g-4">
+            <!-- Left: Image Gallery -->
+            <div class="col-lg-8 col-12 main_car_box">
+                <div class="main_image border rounded overflow-hidden mb-3">
+                    <img src="images/main_image.svg" class="w-100" alt="Main Car Image"
+                        style="max-height:340px;object-fit:cover;">
+                    <button class="btn view-btn"><i class="bi bi-image"></i> View all image</button>
+
+                </div>
+
+                <div class="d-none d-md-block d-flex flex-wrap gap-2 overflow-auto mb-3">
+                    <!-- Thumbnails -->
+                    <img src="images/land_cruiser.svg" class="img-thumbnail" width="86" height="86">
+                    <img src="images/land_cruiser.svg" class="img-thumbnail" width="86" height="86">
+                    <img src="images/land_cruiser.svg" class="img-thumbnail" width="86" height="86">
+                    <img src="images/land_cruiser.svg" class="img-thumbnail" width="86" height="86">
+                    <img src="images/land_cruiser.svg" class="img-thumbnail" width="86" height="86">
+                    <img src="images/land_cruiser.svg" class="img-thumbnail" width="86" height="86">
+                    <img src="images/land_cruiser.svg" class="img-thumbnail" width="86" height="86">
+                    <img src="images/land_cruiser.svg" class="img-thumbnail" width="86" height="86">
+                    <img src="images/land_cruiser.svg" class="img-thumbnail" width="86" height="86">
+                    <img src="images/land_cruiser.svg" class="img-thumbnail" width="86" height="86">
+                    <img src="images/land_cruiser.svg" class="img-thumbnail" width="86" height="86">
+                    <img src="images/land_cruiser.svg" class="img-thumbnail" width="86" height="86">
+                    <img src="images/land_cruiser.svg" class="img-thumbnail" width="86" height="86">
+                    <img src="images/land_cruiser.svg" class="img-thumbnail" width="86" height="86">
+                    <img src="images/land_cruiser.svg" class="img-thumbnail" width="86" height="86">
+                    <img src="images/land_cruiser.svg" class="img-thumbnail" width="86" height="86">
+                    <img src="images/land_cruiser.svg" class="img-thumbnail" width="86" height="86">
+                    <button class="btn btn-sm btn-outline-secondary view_all">View all images</button>
+                </div>
+
+                <!-- Action Buttons -->
+                <div class="d-none d-md-flex d-flex flex-wrap justify-content-center gap-3 action-buttons">
+                    <button>
+                        <img src="images/icons/weight_icon.svg" alt="" class="icon"> Compare
+                    </button>
+                    <button>
+                        <img src="images/icons/favourite_icon.svg" alt="" class="icon"> Favourite
+                    </button>
+                    <button>
+                        <img src="images/icons/share_icon.svg" alt="" class="icon"> Share
+                    </button>
+                    <div class="ms-auto d-flex align-items-center gap-2">
+                        Share:
+                        <img src="images/icons/facebook.svg" alt="">
+                        <img src="images/icons/twitter.svg" alt="">
+                        <img src="images/icons/whatsapp.svg" alt="">
+                        <img src="images/icons/gmail.svg" alt="">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right: Pricing + Info -->
+            <div class="col-lg-4" id="car-detail-section">
+                <div class="mb-3">
+                    <h5 class="fw-bold mb-1">1996 TOYOTA LAND CRUISER PRADO KZJ95W 4WD</h5>
+                    <small class="text-muted">TokyoCarZ.com® Consumer Rating <span class="text-warning">★ 4.8</span>
+                        (11)</small>
+                    <div class="d-flex flex-wrap gap-2 mt-2">
+                        <span class="badge bg-light text-dark">1999 Aug</span>
+                        <span class="badge bg-light text-dark">10,000 cc</span>
+                        <span class="badge bg-light text-dark">100,000km</span>
+                        <span class="badge bg-light text-dark">Manual</span>
+                    </div>
+                </div>
+
+                <div class="border rounded p-3 mobile">
+                    <div class="row">
+                        <div class="col-6">
+                            <div class="mb-2">Car Price (FOB)</div>
+                            <div class="mb-2">Delivery To <i class="fas fa-info-circle"></i></div>
+                            <div class="mb-2">Additional Options</div>
+                            <br>
+                            <div class="mb-2 mt-2">ETA Delivery <i class="fas fa-info-circle"></i></div>
+                            <div class="pt-2 border-top fw-bold">Total Price (CIF)</div>
+                        </div>
+                        <div class="col-6">
+                            <div class="mb-2"><strong>$456,312 <del class="text-muted small">$900</del></strong></div>
+                            <div class="mb-2"><a href="#" class=" text-decoration-underline"><i class="fas fa-anchor ">
+                                    </i> Long Beach /
+                                    USA</a></div>
+                            <div class="mb-2">
+                                <label class="form-check-label d-block">
+                                    <input class="form-check-input me-1" type="checkbox"> Insurance ($76)
+                                </label>
+                                <label class="form-check-label d-block">
+                                    <input class="form-check-input me-1" type="checkbox"> Inspection ($306)
+                                </label>
+                            </div>
+                            <div class="mb-2">9–18 Days</div>
+                            <div class="pt-2 border-top text-primary fw-bold cif_price">$600</div>
+                        </div>
+                    </div>
+
+                    <div class="text-danger small text-center mt-3">
+                        2 people are inquiring about this car
+                    </div>
+
+                    <div class="d-grid gap-2 mt-3">
+                        <button class="btn btn-danger">
+                            <img src="images/message_icon.png" alt=""> <strong>Get a free quotation</strong>
+                        </button>
+                        <button class="btn bg-primary text-white">
+                            <strong>Buy now by Paypal, Wise, Credit Card</strong>
+                        </button>
+                        <div class="text-center mt-2">
+                            <img src="images/bank_transfer.png" alt="Bank Transfer" height="20">
+                            <img src="images/paypal.png" alt="Paypal" height="20">
+                            <img src="images/wise.png" alt="Wise" height="20">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="action-buttons-mobile">
+                <button>
+                    <img src="images/icons/weight_icon.svg" alt="Compare Icon" class="icon">
+                    Compare
+                </button>
+                <button>
+                    <img src="images/icons/favourite_icon.svg" alt="Compare Icon" class="icon">
+                    Favourite
+                </button>
+                <button>
+                    <img src="images/icons/share_icon.svg" alt="Compare Icon" class="icon">
+                    Share
+                </button>
+            </div>
+        </div>
+    </div>
+    <div class="section-divider"></div>
+
+    <div class="container py-4">
+        <h5 class="fw-bold mb-3">Car Details</h5>
+        <div class="row"> <!-- reduced gutter spacing -->
+            <div class="col-12 col-lg-8">
+                <div class="row  gy-2">
+
+                    <!-- Item 1 -->
+                    <div class="col-6 col-lg-4 d-flex align-items-start">
+                        <div class="icon-circle me-2"> <!-- reduce icon spacing -->
+                            <img src="images/icons/registeration_year_icon.svg" alt="Registration Year">
+                        </div>
+                        <div>
+                            <div class="fw-semibold small">1999 Aug</div>
+                            <small class="text-muted">Registration Year</small>
+                        </div>
+                    </div>
+
+                    <!-- Item 2 -->
+                    <div class="col-6 col-lg-4 d-flex align-items-start">
+                        <div class="icon-circle me-2">
+                            <img src="images/icons/engine.svg" alt="Engine">
+                        </div>
+                        <div>
+                            <div class="fw-semibold small">10,000 cc</div>
+                            <small class="text-muted">Engine</small>
+                        </div>
+                    </div>
+
+                    <!-- Item 3 -->
+                    <div class="col-6 col-lg-4 d-flex align-items-start">
+                        <div class="icon-circle me-2">
+                            <img src="images/icons/model_code_icon.svg" alt="Model Code">
+                        </div>
+                        <div>
+                            <div class="fw-semibold small">6BA-MXAA54</div>
+                            <small class="text-muted">Model code</small>
+                        </div>
+                    </div>
+
+                    <!-- Item 4 -->
+                    <div class="col-6 col-lg-4 d-flex align-items-start">
+                        <div class="icon-circle me-2">
+                            <img src="images/icons/milage_icon.svg" alt="Mileage">
+                        </div>
+                        <div>
+                            <div class="fw-semibold small">100,000km</div>
+                            <small class="text-muted">Mileage</small>
+                        </div>
+                    </div>
+
+                    <!-- Item 5 -->
+                    <div class="col-6 col-lg-4 d-flex align-items-start">
+                        <div class="icon-circle me-2">
+                            <img src="images/icons/transmission_icon.svg" alt="Transmission">
+                        </div>
+                        <div>
+                            <div class="fw-semibold small">Manual</div>
+                            <small class="text-muted">Transmission</small>
+                        </div>
+                    </div>
+
+                    <!-- Item 6 -->
+                    <div class="col-6 col-lg-4 d-flex align-items-start">
+                        <div class="icon-circle me-2">
+                            <img src="images/icons/engine_code_icon.svg" alt="Engine Code">
+                        </div>
+                        <div>
+                            <div class="fw-semibold small">M20A</div>
+                            <small class="text-muted">Engine code</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="carPriceBox" class="car-price-box shadow-sm p-3 bg-white rounded border d-none">
+            <div class="d-flex align-items-start gap-2 mb-2">
+                <img src="images/toyota_land_cruiser.svg" alt="Car" class="rounded" style="width: 80px; height: auto;">
+                <div>
+                    <h6 class="fw-semibold mb-0 small">1996 TOYOTA LAND CRUISER PRADO KZJ95W 4WD</h6>
+                    <div class="text-warning small">★ 4.8 <span class="text-primary">(11)</span></div>
+                </div>
+            </div>
+
+            <div class=" p-3">
+                <div class="row">
+                    <div class="col-6">
+                        <div class="mb-2">Car Price (FOB)</div>
+                        <div class="mb-2">Delivery To <i class="fas fa-info-circle"></i></div>
+                        <div class="mb-2">Additional Options</div>
+                        <br>
+                        <div class="mb-2 mt-2">ETA Delivery <i class="fas fa-info-circle"></i></div>
+                        <div class="pt-2 border-top fw-bold">Total Price (CIF)</div>
+                    </div>
+                    <div class="col-6">
+                        <div class="mb-2"><strong>$456,312 <del class="text-muted small">$900</del></strong></div>
+                        <div class="mb-2"><a href="#" class=" text-decoration-underline"><i class="fas fa-anchor ">
+                                </i> Long Beach /
+                                USA</a></div>
+                        <div class="mb-2">
+                            <label class="form-check-label d-block">
+                                <input class="form-check-input me-1" type="checkbox"> Insurance ($76)
+                            </label>
+                            <label class="form-check-label d-block">
+                                <input class="form-check-input me-1" type="checkbox"> Inspection ($306)
+                            </label>
+                        </div>
+                        <div class="mb-2">9–18 Days</div>
+                        <div class="pt-2 border-top text-primary fw-bold cif_price">$600</div>
+                    </div>
+                </div>
+
+                <div class="text-danger small text-center mt-3">
+                    2 people are inquiring about this car
+                </div>
+
+                <div class="d-grid gap-2 mt-3">
+                    <button class="btn btn-danger">
+                        <img src="images/message_icon.png" alt=""> <strong>Get a free quotation</strong>
+                    </button>
+                    <button class="btn bg-primary text-white">
+                        <strong>Buy now by Paypal, Wise, Credit Card</strong>
+                    </button>
+                    <div class="text-center mt-2">
+                        <img src="images/bank_transfer.png" alt="Bank Transfer" height="20">
+                        <img src="images/paypal.png" alt="Paypal" height="20">
+                        <img src="images/wise.png" alt="Wise" height="20">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- Sticky Bottom CTA Buttons (visible only on mobile) -->
+        <div class="sticky-button d-md-none d-block fixed-bottom bg-white border-top shadow p-2 z-3">
+            <div class="d-grid d-flex gap-1 cta-buttons">
+                <button class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#quotationModel">
+                    <img src="images/message_icon.png" alt="" class="me-1">
+                    <strong>Get a free quotation</strong>
+                </button>
+                <button class="btn btn-primary text-white">
+                    <strong>Buy now </strong><br><span>by Paypal, Wise, Credit Card</span>
+                </button>
+            </div>
+        </div>
+
+
+
+    </div>
+
+    <div class="section-divider"></div>
+    <div class="container py-4">
+        <h5 class="fw-bold mb-3">Features</h5>
+        <div class="table-responsive d-none d-md-block">
+            <!-- Desktop Table (4 columns) -->
+            <table class="table table-bordered features-table mb-0" style="max-width: 850px;" id="section-features">
+                <tbody>
+                    <tr>
+                        <td class="table_data_heading text-secondary">Stock No.</td>
+                        <td><strong>VA-10065</strong></td>
+                        <td class="table_data_heading text-secondary">Fuel</td>
+                        <td><strong>Gasoline Hybrid</strong></td>
+                    </tr>
+                    <tr>
+                        <td class="table_data_heading text-secondary">Location</td>
+                        <td><strong>Japan » Yokohama</strong></td>
+                        <td class="table_data_heading text-secondary">Model</td>
+                        <td><strong>LAND CRUISER</strong></td>
+                    </tr>
+                    <tr>
+                        <td class="table_data_heading text-secondary">Make</td>
+                        <td><strong>Toyota</strong></td>
+                        <td class="table_data_heading text-secondary">Model Code</td>
+                        <td><strong>6BA-MXAA54</strong></td>
+                    </tr>
+                    <tr>
+                        <td class="table_data_heading text-secondary">Version/Class</td>
+                        <td><strong>---</strong></td>
+                        <td class="table_data_heading text-secondary">Steering</td>
+                        <td><strong>Left Hand</strong></td>
+                    </tr>
+                    <tr>
+                        <td class="table_data_heading text-secondary">Engine</td>
+                        <td><strong>10,000 cc</strong></td>
+                        <td class="table_data_heading text-secondary">Seats</td>
+                        <td><strong>6</strong></td>
+                    </tr>
+                    <tr>
+                        <td class="table_data_heading text-secondary">Make</td>
+                        <td><strong>Toyota</strong></td>
+                        <td class="table_data_heading text-secondary">Model Code</td>
+                        <td><strong>6BA-MXAA54</strong></td>
+                    </tr>
+                    <tr>
+                        <td class="table_data_heading text-secondary">Version/Class</td>
+                        <td><strong>---</strong></td>
+                        <td class="table_data_heading text-secondary">Steering</td>
+                        <td><strong>Left Hand</strong></td>
+                    </tr>
+                    <tr>
+                        <td class="table_data_heading text-secondary">Engine</td>
+                        <td><strong>10,000 cc</strong></td>
+                        <td class="table_data_heading text-secondary">Seats</td>
+                        <td><strong>6</strong></td>
+                    </tr>
+                    <tr>
+                        <td class="table_data_heading text-secondary">Make</td>
+                        <td><strong>Toyota</strong></td>
+                        <td class="table_data_heading text-secondary">Model Code</td>
+                        <td><strong>6BA-MXAA54</strong></td>
+                    </tr>
+                    <tr>
+                        <td class="table_data_heading text-secondary">Version/Class</td>
+                        <td><strong>---</strong></td>
+                        <td class="table_data_heading text-secondary">Steering</td>
+                        <td><strong>Left Hand</strong></td>
+                    </tr>
+                    <tr>
+                        <td class="table_data_heading text-secondary">Engine</td>
+                        <td><strong>10,000 cc</strong></td>
+                        <td class="table_data_heading text-secondary">Seats</td>
+                        <td><strong>6</strong></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Mobile Version -->
+        <div class="d-md-none">
+
+            <table class="table table-bordered">
+                <tbody>
+                    <tr>
+                        <td class="table_data_heading text-secondary">Stock No.</td>
+                        <td><strong>VA-10065</strong></td>
+                    </tr>
+                    <tr>
+                        <td class="table_data_heading text-secondary">Fuel</td>
+                        <td><strong>Gasoline Hybrid</strong></td>
+                    </tr>
+                    <tr>
+                        <td class="table_data_heading text-secondary">Location</td>
+                        <td><strong>Japan » Yokohama</strong></td>
+                    </tr>
+                    <tr>
+                        <td class="table_data_heading text-secondary">Model</td>
+                        <td><strong>LAND CRUISER</strong></td>
+                    </tr>
+                    <tr>
+                        <td class="table_data_heading text-secondary">Make</td>
+                        <td><strong>Toyota</strong></td>
+                    </tr>
+                    <tr>
+                        <td class="table_data_heading text-secondary">Model Code</td>
+                        <td><strong>6BA-MXAA54</strong></td>
+                    </tr>
+                    <tr>
+                        <td class="table_data_heading text-secondary">Version/Class</td>
+                        <td><strong>---</strong></td>
+                    </tr>
+                    <tr>
+                        <td class="table_data_heading text-secondary">Steering</td>
+                        <td><strong>Left Hand</strong></td>
+                    </tr>
+                    <tr>
+                        <td class="table_data_heading text-secondary">Engine</td>
+                        <td><strong>10,000 cc</strong></td>
+                    </tr>
+                    <tr>
+                        <td class="table_data_heading text-secondary">Seats</td>
+                        <td><strong>6</strong></td>
+                    </tr>
+
+                    <tr>
+                        <td class="table_data_heading text-secondary">Other Details</td>
+                        <td><strong>---</strong></td>
+                    </tr>
+                    <tr>
+                        <td class="table_data_heading text-secondary">Other Details</td>
+                        <td><strong>---</strong></td>
+                    </tr>
+                    <tr>
+                        <td class="table_data_heading text-secondary">Other Details</td>
+                        <td><strong>---</strong></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="section-divider"></div>
+
+    <div class="container py-4">
+        <!-- Description Section -->
+        <div class="mb-4" style="max-width: 850px;">
+            <h5 class="fw-bold">Description</h5>
+            <div class="text-dark small">
+                <p>Odometer is 753 miles below market average!</p>
+                <p>
+                    All prices and offers include all rebates and incentives which the dealer retains unless
+                    otherwise
+                    specifically provided.
+                    Certain manufacturer rebates are conditional incentives and interest rate specific offer
+                    displayed
+                    is based on approved credit.
+                    See if you qualify for additional discounts or rebates.
+                </p>
+                <p>
+                    Price does not include any Dealer Installed Options or any Market Adjustments and must be paid
+                    by
+                    the purchaser.
+                    All vehicle pricing, information and availability are subject to change without notice.
+                    Prices do not include government fees...
+                </p>
+                <p>
+                    Out of state buyers are responsible for all state, county, city taxes and fees, as well as
+                    title/registration fees...
+                    Dealer not responsible for errors and omissions; all offers subject to change without notice.
+                    <strong>Call us at 615-551-7507</strong>.
+                </p>
+                <a href="#" class="small text-decoration-none mt-2 d-inline-block text-primary">
+                    Show more <i class="bi bi-chevron-down"></i>
+                </a>
+            </div>
+        </div>
+
+    </div>
+    <div class="section-divider"></div>
+
+    <!-- Payment Methods Section -->
+    <div class="container py-4">
+
+        <div class="mb-4">
+            <h6 class="fw-bold text-dark">Available Payment Methods</h6>
+            <div class="d-flex flex-wrap align-items-center payment_box gap-4 mt-3">
+                <div class="text-center">
+                    <img src="images/bank_transfer.png" alt="Bank Transfer" height="35">
+                    <div class="small mt-1">Bank Transfer</div>
+                </div>
+                <div class="text-center">
+                    <img src="images/paypal.png" alt="PayPal" height="35">
+                    <div class="small mt-1">Pay with PayPal</div>
+                </div>
+                <div class="text-center">
+                    <img src="images/wise.png" alt="Wise" height="35">
+                    <div class="small mt-1">Wise Transfer</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="section-divider"></div>
+
+    <div class="container py-4">
+        <div class="purchase-flow">
+            <h6 class="fw-bold">Purchase Flow</h6>
+            <p class="text-muted small mb-3">See real feedback on car quality, smooth transactions, and great
+                support.
+            </p>
+
+            <div class="d-flex justify-content-between overflow-auto align-items-center gap-3 flex-nowrap">
+                <!-- Step 1 -->
+                <div class="border p-3 bg-white d-flex gap-3 flex-shrink-0 align-items-start">
+                    <div class="text-center">
+                        <img src="images/icons/search_icon.svg" class="flow-icon mb-2" alt="">
+                        <div class="fw-bold small">STEP 1</div>
+                        <div class="fw-semibold">ORDER</div>
+                    </div>
+                    <div class="d-flex flex-column gap-2">
+                        <button class="btn btn-danger btn-sm">
+                            <img src="images/message_icon.png" height="20" alt=""> Get a free quotation
+                        </button>
+                        <button class="btn bg-primary btn-sm">Buy now by Paypal, Wise, Credit Card</button>
+                        <small class="text-muted">Receive a quote & confirm your order</small>
+                    </div>
+                </div>
+
+                <img src="images/icons/arrow.svg" class="arrow-between" alt="Arrow">
+
+                <!-- Step 2 -->
+                <div class="border px-3 py-2 bg-white d-flex gap-3 flex-shrink-0 align-items-start">
+                    <div class="text-center">
+                        <img src="images/icons/payment_icon.svg" class="flow-icon mb-2" alt="">
+                        <div class="fw-bold small">STEP 2</div>
+                        <div class="fw-semibold">PAYMENT</div>
+                    </div>
+                    <div>
+                        <img src="images/pament.svg" alt="Payments" class="img-fluid" style="min-width:140px;">
+                    </div>
+                </div>
+
+                <img src="images/icons/arrow.svg" class="arrow-between" alt="Arrow">
+
+                <!-- Step 3 -->
+                <div class="flow-step-three-four text-center p-3 flex-shrink-0">
+                    <img src="images/icons/shipment_icon.svg" class="flow-icon mb-2" alt="">
+                    <div class="fw-bold small">STEP 3</div>
+                    <div class="fw-semibold">SHIPMENT</div>
+                </div>
+
+                <img src="images/icons/arrow.svg" class="arrow-between" alt="Arrow">
+
+                <!-- Step 4 -->
+                <div class="flow-step-three-four text-center p-3 flex-shrink-0">
+                    <img src="images/icons/delievery_icon.svg" class="flow-icon mb-2" alt="">
+                    <div class="fw-bold small">STEP 4</div>
+                    <div class="fw-semibold">DELIVERY</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="section-divider"></div>
+
+    <div class="container py-5 " id="section-feedback">
+        <h5 class="fw-bold">Customer Testimonials</h5>
+        <p class="text-muted small mb-4">
+            Hear from our happy buyers! See real feedback on car quality, smooth transactions, and great support.
+            Trust their experiences for your next purchase!
+        </p>
+
+        <!-- Normal Grid Layout (Desktop/Tablet) -->
+        <div class="row g-3 d-none d-md-flex">
+            <div class="col-md-6">
+                <div class="p-3 border rounded d-flex align-items-start gap-3 bg-white">
+                    <img src="images/testimonial.svg" class="rounded-circle" width="50" height="50" alt="Michael">
+                    <div class="flex-grow-1">
+                        <strong>Michael Thompson</strong>
+                        <div class="text-muted small mb-2">
+                            <span class="text-warning">★</span> 5/5 &nbsp;
+                            <img src="images/flags/flag_icon.svg" alt=""> Tanzania &nbsp;
+                            <img src="images/icons/verified_icon.svg" alt=""> Verified buyer
+                        </div>
+                        <p class="small mb-0">
+                            “The car was in excellent condition, just as described! Low mileage and very clean.
+                            Super happy with my purchase!”
+                        </p>
+                    </div>
+                    <img src="images/land_cruiser.svg" class="img-fluid rounded" width="100" alt="Car">
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="p-3 border rounded d-flex align-items-start gap-3 bg-white">
+                    <img src="images/testimonial.svg" class="rounded-circle" width="50" height="50" alt="Michael">
+                    <div class="flex-grow-1">
+                        <strong>Michael Thompson</strong>
+                        <div class="text-muted small mb-2">
+                            <span class="text-warning">★</span> 5/5 &nbsp;
+                            <img src="images/flags/flag_icon.svg" alt=""> Tanzania &nbsp;
+                            <img src="images/icons/verified_icon.svg" alt=""> Verified buyer
+                        </div>
+                        <p class="small mb-0">
+                            “The car was in excellent condition, just as described! Low mileage and very clean.
+                            Super happy with my purchase!”
+                        </p>
+                    </div>
+                    <img src="images/land_cruiser.svg" class="img-fluid rounded" width="100" alt="Car">
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="p-3 border rounded d-flex align-items-start gap-3 bg-white">
+                    <img src="images/testimonial.svg" class="rounded-circle" width="50" height="50" alt="Michael">
+                    <div class="flex-grow-1">
+                        <strong>Michael Thompson</strong>
+                        <div class="text-muted small mb-2">
+                            <span class="text-warning">★</span> 5/5 &nbsp;
+                            <img src="images/flags/flag_icon.svg" alt=""> Tanzania &nbsp;
+                            <img src="images/icons/verified_icon.svg" alt=""> Verified buyer
+                        </div>
+                        <p class="small mb-0">
+                            “The car was in excellent condition, just as described! Low mileage and very clean.
+                            Super happy with my purchase!”
+                        </p>
+                    </div>
+                    <img src="images/land_cruiser.svg" class="img-fluid rounded" width="100" alt="Car">
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="p-3 border rounded d-flex align-items-start gap-3 bg-white">
+                    <img src="images/testimonial.svg" class="rounded-circle" width="50" height="50" alt="Michael">
+                    <div class="flex-grow-1">
+                        <strong>Michael Thompson</strong>
+                        <div class="text-muted small mb-2">
+                            <span class="text-warning">★</span> 5/5 &nbsp;
+                            <img src="images/flags/flag_icon.svg" alt=""> Tanzania &nbsp;
+                            <img src="images/icons/verified_icon.svg" alt=""> Verified buyer
+                        </div>
+                        <p class="small mb-0">
+                            “The car was in excellent condition, just as described! Low mileage and very clean.
+                            Super happy with my purchase!”
+                        </p>
+                    </div>
+                    <img src="images/land_cruiser.svg" class="img-fluid rounded" width="100" alt="Car">
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="p-3 border rounded d-flex align-items-start gap-3 bg-white">
+                    <img src="images/testimonial.svg" class="rounded-circle" width="50" height="50" alt="Michael">
+                    <div class="flex-grow-1">
+                        <strong>Michael Thompson</strong>
+                        <div class="text-muted small mb-2">
+                            <span class="text-warning">★</span> 5/5 &nbsp;
+                            <img src="images/flags/flag_icon.svg" alt=""> Tanzania &nbsp;
+                            <img src="images/icons/verified_icon.svg" alt=""> Verified buyer
+                        </div>
+                        <p class="small mb-0">
+                            “The car was in excellent condition, just as described! Low mileage and very clean.
+                            Super happy with my purchase!”
+                        </p>
+                    </div>
+                    <img src="images/land_cruiser.svg" class="img-fluid rounded" width="100" alt="Car">
+                </div>
+            </div>
+            <!-- Repeat for more testimonials -->
+        </div>
+
+        <!-- Carousel Layout (Mobile only) -->
+        <div class="carousel-container d-md-none position-relative">
+            <div class="carousel-wrapper d-flex overflow-auto flex-nowrap gap-3">
+                <div class="carousel-slide p-3 border rounded bg-white" style="min-width: 270px;">
+                    <div class="d-flex align-items-center mb-2">
+                        <img src="images/testimonial.svg" class="rounded-circle me-2" width="40" height="40"
+                            alt="Michael">
+                        <div>
+                            <strong>Michael Thompson</strong><br />
+                            <small class="text-muted">
+                                <span class="text-warning">★</span> 5/5 &nbsp;
+                                <img src="images/flags/flag_icon.svg" alt=""> Tanzania &nbsp;
+                                <img src="images/icons/verified_icon.svg" alt=""> Verified buyer
+                            </small>
+                        </div>
+                    </div>
+                    <p class="small mb-2">
+                        “The car was in excellent condition, just as described! Low mileage and very clean.
+                        Super happy with my purchase!”
+                    </p>
+                    <img src="images/land_cruiser.svg" class="img-fluid rounded" alt="Car">
+                </div>
+                <div class="carousel-slide p-3 border rounded bg-white" style="min-width: 270px;">
+                    <div class="d-flex align-items-center mb-2">
+                        <img src="images/testimonial.svg" class="rounded-circle me-2" width="40" height="40"
+                            alt="Michael">
+                        <div>
+                            <strong>Michael Thompson</strong><br />
+                            <small class="text-muted">
+                                <span class="text-warning">★</span> 5/5 &nbsp;
+                                <img src="images/flags/flag_icon.svg" alt=""> Tanzania &nbsp;
+                                <img src="images/icons/verified_icon.svg" alt=""> Verified buyer
+                            </small>
+                        </div>
+                    </div>
+                    <p class="small mb-2">
+                        “The car was in excellent condition, just as described! Low mileage and very clean.
+                        Super happy with my purchase!”
+                    </p>
+                    <img src="images/land_cruiser.svg" class="img-fluid rounded" alt="Car">
+                </div>
+                <div class="carousel-slide p-3 border rounded bg-white" style="min-width: 270px;">
+                    <div class="d-flex align-items-center mb-2">
+                        <img src="images/testimonial.svg" class="rounded-circle me-2" width="40" height="40"
+                            alt="Michael">
+                        <div>
+                            <strong>Michael Thompson</strong><br />
+                            <small class="text-muted">
+                                <span class="text-warning">★</span> 5/5 &nbsp;
+                                <img src="images/flags/flag_icon.svg" alt=""> Tanzania &nbsp;
+                                <img src="images/icons/verified_icon.svg" alt=""> Verified buyer
+                            </small>
+                        </div>
+                    </div>
+                    <p class="small mb-2">
+                        “The car was in excellent condition, just as described! Low mileage and very clean.
+                        Super happy with my purchase!”
+                    </p>
+                    <img src="images/land_cruiser.svg" class="img-fluid rounded" alt="Car">
+                </div>
+                <div class="carousel-slide p-3 border rounded bg-white" style="min-width: 270px;">
+                    <div class="d-flex align-items-center mb-2">
+                        <img src="images/testimonial.svg" class="rounded-circle me-2" width="40" height="40"
+                            alt="Michael">
+                        <div>
+                            <strong>Michael Thompson</strong><br />
+                            <small class="text-muted">
+                                <span class="text-warning">★</span> 5/5 &nbsp;
+                                <img src="images/flags/flag_icon.svg" alt=""> Tanzania &nbsp;
+                                <img src="images/icons/verified_icon.svg" alt=""> Verified buyer
+                            </small>
+                        </div>
+                    </div>
+                    <p class="small mb-2">
+                        “The car was in excellent condition, just as described! Low mileage and very clean.
+                        Super happy with my purchase!”
+                    </p>
+                    <img src="images/land_cruiser.svg" class="img-fluid rounded" alt="Car">
+                </div>
+                <div class="carousel-slide p-3 border rounded bg-white" style="min-width: 270px;">
+                    <div class="d-flex align-items-center mb-2">
+                        <img src="images/testimonial.svg" class="rounded-circle me-2" width="40" height="40"
+                            alt="Michael">
+                        <div>
+                            <strong>Michael Thompson</strong><br />
+                            <small class="text-muted">
+                                <span class="text-warning">★</span> 5/5 &nbsp;
+                                <img src="images/flags/flag_icon.svg" alt=""> Tanzania &nbsp;
+                                <img src="images/icons/verified_icon.svg" alt=""> Verified buyer
+                            </small>
+                        </div>
+                    </div>
+                    <p class="small mb-2">
+                        “The car was in excellent condition, just as described! Low mileage and very clean.
+                        Super happy with my purchase!”
+                    </p>
+                    <img src="images/land_cruiser.svg" class="img-fluid rounded" alt="Car">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="section-divider"></div>
+
+    <div class="container py-5" id="section-next">
+        <h5 class="fw-bold mb-4">Recommended For You</h5>
+
+        <div class="carousel-container position-relative">
+            <button class="prev-button"><i class="fas fa-chevron-left"></i></button>
+
+            <div class="carousel-wrapper">
+                <!-- Slide -->
+                <div class="carousel-slide">
+                    <div class="card border-0 shadow-sm">
+                        <img src="images/toyota_land_cruiser.svg" class="card-img-top" alt="Car" />
+                        <div class="card-body px-2">
+                            <h6 class="text-primary small fw-semibold mb-1">1997 SUZUKI CARRY TRUCK DD51T 4WD</h6>
+                            <div class="small text-muted">⭐⭐⭐⭐⭐ <span>(11 reviews)</span></div>
+                            <div class="text-muted small">1999 Aug · 103,000 km</div>
+                            <div class="text-muted small">100,000 cc · DD51T</div>
+                            <hr class="my-2" />
+                            <div class="d-flex justify-content-between small text-muted">
+                                <span>Car Price <i class="fas fa-info-circle"></i></span>
+                                <span class="fw-bold text-dark">$400,000</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-slide">
+                    <div class="card border-0 shadow-sm">
+                        <img src="images/toyota_land_cruiser.svg" class="card-img-top" alt="Car" />
+                        <div class="card-body px-2">
+                            <h6 class="text-primary small fw-semibold mb-1">1997 SUZUKI CARRY TRUCK DD51T 4WD</h6>
+                            <div class="small text-muted">⭐⭐⭐⭐⭐ <span>(11 reviews)</span></div>
+                            <div class="text-muted small">1999 Aug · 103,000 km</div>
+                            <div class="text-muted small">100,000 cc · DD51T</div>
+                            <hr class="my-2" />
+                            <div class="d-flex justify-content-between small text-muted">
+                                <span>Car Price <i class="fas fa-info-circle"></i></span>
+                                <span class="fw-bold text-dark">$400,000</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Repeat .carousel-slide as needed -->
+            </div>
+
+            <button class="next-button"><i class="fas fa-chevron-right"></i></button>
+        </div>
+    </div>
+    <div class="section-divider"></div>
+
+    <div class="container py-5">
+        <h5 class="fw-bold mb-4">Browse History</h5>
+
+        <div class="carousel-container position-relative">
+            <button class="prev-button"><i class="fas fa-chevron-left"></i></button>
+
+            <div class="carousel-wrapper">
+                <!-- Slide -->
+                <div class="carousel-slide">
+                    <div class="card border-0 shadow-sm">
+                        <img src="images/toyota_land_cruiser.svg" class="card-img-top" alt="Car" />
+                        <div class="card-body px-2">
+                            <h6 class="text-primary small fw-semibold mb-1">1997 SUZUKI CARRY TRUCK DD51T 4WD</h6>
+                            <div class="small text-muted">⭐⭐⭐⭐⭐ <span>(11 reviews)</span></div>
+                            <div class="text-muted small">1999 Aug · 103,000 km</div>
+                            <div class="text-muted small">100,000 cc · DD51T</div>
+                            <hr class="my-2" />
+                            <div class="d-flex justify-content-between small text-muted">
+                                <span>Car Price <i class="fas fa-info-circle"></i></span>
+                                <span class="fw-bold text-dark">$400,000</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-slide">
+                    <div class="card border-0 shadow-sm">
+                        <img src="images/toyota_land_cruiser.svg" class="card-img-top" alt="Car" />
+                        <div class="card-body px-2">
+                            <h6 class="text-primary small fw-semibold mb-1">1997 SUZUKI CARRY TRUCK DD51T 4WD</h6>
+                            <div class="small text-muted">⭐⭐⭐⭐⭐ <span>(11 reviews)</span></div>
+                            <div class="text-muted small">1999 Aug · 103,000 km</div>
+                            <div class="text-muted small">100,000 cc · DD51T</div>
+                            <hr class="my-2" />
+                            <div class="d-flex justify-content-between small text-muted">
+                                <span>Car Price <i class="fas fa-info-circle"></i></span>
+                                <span class="fw-bold text-dark">$400,000</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Repeat .carousel-slide as needed -->
+            </div>
+
+            <button class="next-button"><i class="fas fa-chevron-right"></i></button>
+        </div>
+    </div>
+
+
+
+
+
+    <!-- Footer Part  -->
+    <div class=" new-letter">
+        <h5><strong>Subscribe <span class="text-decoration-underline"> Newsletter</span> </strong> </h5>
+
+        <div class="container mt-3">
+            <form action="https://www.tokyocarz.com/newsletter_subscriber.php" method="post" name="subscribeForm"
+                onsubmit="return checkForm();">
+                <div class="row">
+                    <div class="offset-xl-1 col-xl-11 col-lg-12 col-md-12 col-sm-12 col-12">
+                        <div class="row">
+                            <div class="col-xl-3 col-lg-3 col-md-3 col-sm-6 col-6 m-hgt padding_right_5">
+                                <input type="text" class="form-control" id="name" name="name" placeholder="Name"
+                                    fdprocessedid="pu9sc">
+                            </div>
+                            <div class="col-xl-3 col-lg-3 col-md-3 col-sm-6 col-6 m-hgt padding_right_5 padding_left_5">
+                                <input type="email" class="form-control" id="email" name="email"
+                                    aria-describedby="emailHelp" placeholder="Enter email" fdprocessedid="g9y733">
+                            </div>
+                            <div class="col-xl-3 col-lg-3 col-md-3 col-sm-6 col-6 m-hgt padding_right_5 padding_left_5">
+
+                                <select name="country" class="form-select " required>
+                                    <option value="">Select Country</option>
+                                    <option value="Pakistan">Pakistan</option>
+                                    <option value="USA">USA</option>
+                                    <option value="UK">UK</option>
+                                </select>
+
+                            </div>
+                            <div class="col-xl-3  col-lg-3 col-md-3 col-sm-6 col-6 m-hgt">
+                                <div class="g-recaptcha"
+                                    style="transform: scale(0.50); -webkit-transform: scale(0.50); transform-origin: 0 0; -webkit-transform-origin: 0 0;"
+                                    data-sitekey="6LdLVAUbAAAAAMKuRx4_52mDkHllbxokcsDwFGFI">
+                                    <div style="width: 304px; height: 78px;">
+                                        <div><iframe title="reCAPTCHA" width="304" height="78" role="presentation"
+                                                name="a-w3g2nb9fw6u5" frameborder="0" scrolling="no"
+                                                sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-top-navigation allow-modals allow-popups-to-escape-sandbox allow-storage-access-by-user-activation"
+                                                src="https://www.google.com/recaptcha/api2/anchor?ar=1&amp;k=6LdLVAUbAAAAAMKuRx4_52mDkHllbxokcsDwFGFI&amp;co=aHR0cHM6Ly93d3cudG9reW9jYXJ6LmNvbTo0NDM.&amp;hl=en&amp;v=h7qt2xUGz2zqKEhSc8DD8baZ&amp;size=normal&amp;cb=la16bx8hhjey"></iframe>
+                                        </div><textarea id="g-recaptcha-response-2" name="g-recaptcha-response"
+                                            class="g-recaptcha-response"
+                                            style="width: 250px; height: 40px; border: 1px solid rgb(193, 193, 193); margin: 10px 25px; padding: 0px; resize: none; display: none;"></textarea>
+                                    </div><iframe style="display: none;"></iframe>
+                                </div>
+                            </div>
+
+
+                        </div>
+                    </div>
+
+                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                        <button type="submit" name="subscribe" class="btn bg-primary" fdprocessedid="2dc65p">Subscribe
+                            Now</button>
+                    </div>
+                </div>
+            </form>
+
+
+        </div>
+
+    </div>
+
+    <footer class="d-none d-md-block bg-dark-blue text-white pt-4 pb-4 position-relative">
+        <div class="container">
+            <div class="row gy-3">
+                <!-- Logo & Contact -->
+                <div class="col-xl-3 col-lg-5 col-md-5">
+                    <div>
+                        <a href="https://www.tokyocarz.com">
+                            <img src="https://www.tokyocarz.com/images/footer_logo.png" class="img-fluid"
+                                alt="TokyoCarZ/">
+                        </a>
+                        <hr>
+                    </div>
+                    <ul class="list-unstyled small">
+                        <li><i class="fas fa-map-marker-alt me-2"></i> Nishi-Kasai 403, 3-22-10 Nishi-Kasai,
+                            Edogawa-ku, Tokyo 134-0088, Japan</li>
+                        <li class="mt-2"><i class="fas fa-phone-alt me-2"></i> +81-03-6824-0605</li>
+                        <li class="mt-2"><i class="fas fa-envelope me-2"></i> sales@tokyocarz.com</li>
+                    </ul>
+                </div>
+
+                <div class="col-xl-2 col-lg-2 col-md-2 footer_links">
+                    <h6 class="text-uppercase fw-bold border-white pb-1">Useful <span class="border-bottom">Links</span>
+                    </h6>
+                    <ul class="list-unstyled ">
+                        <li><a href="#" class="text-grey text-decoration-none">About Us</a></li>
+                        <li><a href="#" class="text-grey text-decoration-none">Stock List</a></li>
+                        <li><a href="#" class="text-grey text-decoration-none">Auction</a></li>
+                        <li><a href="#" class="text-grey text-decoration-none">How To Buy</a></li>
+                        <li><a href="#" class="text-grey text-decoration-none">Inquiry</a></li>
+                    </ul>
+                </div>
+
+                <div class="col-xl-2 col-lg-2 col-md-2 footer_links">
+                    <h6 class="text-uppercase fw-bold border-white pb-1">Quick <span class="border-bottom">Link</span>
+                    </h6>
+                    <ul class="list-unstyled small">
+                        <li><a href="#" class="text-grey text-decoration-none">Latest News</a></li>
+                        <li><a href="#" class="text-grey text-decoration-none">FAQ</a></li>
+                        <li><a href="#" class="text-grey text-decoration-none">Testimonials</a></li>
+                        <li><a href="#" class="text-grey text-decoration-none">Contact Us</a></li>
+                        <li><a href="#" class="text-grey text-decoration-none">Sitemap</a></li>
+                    </ul>
+                </div>
+
+                <div class="col-xl-2 col-lg-2 col-md-2 footer_links">
+                    <h6 class="text-uppercase fw-bold border-white pb-1">Payment <span
+                            class="border-bottom">Method</span></h6>
+                    <img src="images/paypa_footer_new.png" alt="Payment Methods" class="img-fluid">
+                </div>
+
+                <div class="col-xl-3 col-lg-3 col-md-3">
+                    <div class="foot-fb">
+                        <div id="fb-root"></div>
+                        <script async defer crossorigin="anonymous"
+                            src="https://connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v16.0"></script>
+                        <div class="fb-page" data-href="https://www.facebook.com/tokyocarzcom/" data-tabs="timeline"
+                            data-width="241" data-height="300" data-small-header="false"
+                            data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="text-center mt-4">
+                <h4>MEMBER OF</h4>
+                <div class="toks d-flex justify-content-center align-items-center flex-wrap gap-4">
+                    <a href="#" class="fa fa-jum"></a>
+                    <a href="#" class="fa fa-safe-trd"></a>
+                    <a href="#" class="fa fa-premium"></a>
+                    <a href="#" class="fa fa-tokgraphic"></a>
+                </div>
+            </div>
+
+        </div>
+        <div class="ftr-bdr mt-4 pt-3">
+            <div
+                class="container d-flex justify-content-between align-items-center flex-wrap text-center text-md-start">
+                <div class="text-white small footer-bottom">
+                    <p>
+
+                        Copyrights © 2025 Zuffra Trading
+                    </p>
+                </div>
+                <ul class="d-flex small bottom-links ps-0 mb-0">
+                    <li><a href="#" class="text-white text-decoration-none">Terms</a></li>
+                    <li><a href="#" class="text-white text-decoration-none">Privacy</a></li>
+                    <li><a href="#" class="text-white text-decoration-none">Disclaimer</a></li>
+                    <li><a href="#" class="text-white text-decoration-none">Sitemap</a></li>
+                </ul>
+                <div class="d-flex gap-2 footer_logo">
+                    <a href="#"><img src="images/footer_fb.png" height="26"></a>
+                    <a href="#"><img src="images/footer_instagram.png" height="26"></a>
+                    <a href="#"><img src="images/footer_youtube.png" height="26"></a>
+                    <a href="#"><img src="images/footer_linkden.png" height="26"></a>
+                    <a href="#"><img src="images/footer_twitter.jpg" height="26"></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Mobile FOoter -->
+    <footer class="d-md-none footer text-white py-4">
+        <div class="container  px-3">
+
+            <!-- Logo -->
+            <div class="d-flex">
+                <img src="images/icons/logo.svg" alt="TokyoCarZ" class="mb-3" style="height: 32px;">
+            </div>
+
+            <!-- Contact Info -->
+            <div class="mb-3">
+                <strong class="text-uppercase small d-block mb-2">Contact</strong>
+                <div>580-0015</div>
+                <div>4-23-7 Shindou, Matsubara, Osaka</div>
+                <div class="mt-1">072-334-0550</div>
+            </div>
+
+            <!-- Copyright -->
+            <div class="small mb-3">
+                Copyright &copy; 2025 TokyoCarz. All rights reserved
+            </div>
+
+            <!-- Social Icons -->
+            <div class="d-flex gap-3">
+                <a href="#" class="text-white"><i class="ri-facebook-circle-line fs-5"></i></a>
+                <a href="#" class="text-white"><i class="ri-twitter-line fs-5"></i></a>
+                <a href="#" class="text-white"><i class="bi bi-instagram fs-5"></i></a>
+                <a href="#" class="text-white"><i class="bi bi-dribbble fs-5"></i></a>
+                <a href="#" class="text-white"><i class="bi bi-behance fs-5"></i></a>
+            </div>
+
+        </div>
+    </footer>
+
+
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+    <script src="js/car_detail_page.js" async defer></script>
+</body>
+
+</html>
